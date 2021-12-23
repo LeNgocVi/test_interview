@@ -7,7 +7,7 @@ const Cart = ({ shoes }) => {
   const [total, setTotal] = useState(0);
 
   const fetchCart = () => {
-    axios.get(`http://localhost:3000/cart`).then((res) => {
+    axios.get(`https://json-server-0.herokuapp.com/api/cart/`).then((res) => {
       if (res.status === 200) {
         const arr = res.data;
         let total = 0;
@@ -29,7 +29,9 @@ const Cart = ({ shoes }) => {
   const removeItem = (id) => {
     const item = cart.find((item) => item.id === id);
     if (item) {
-      axios.delete(`http://localhost:3000/cart/${id}`).then((res) => {});
+      axios
+        .delete(`https://json-server-0.herokuapp.com/api/cart/${id}`)
+        .then((res) => {});
     }
   };
 

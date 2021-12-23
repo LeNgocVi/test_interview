@@ -4,7 +4,7 @@ import "./card.css";
 
 const ListProduct = ({ shoes }) => {
   const addToCart = (id) => {
-    axios.get(`http://localhost:3000/cart`).then((res) => {
+    axios.get(`https://json-server-0.herokuapp.com/api/cart/`).then((res) => {
       if (res.status === 200) {
         const arr = res.data;
         let shoe;
@@ -17,11 +17,16 @@ const ListProduct = ({ shoes }) => {
           const shoeTemp = arr[shoe.index];
           shoeTemp.quantity++;
           axios
-            .put(`http://localhost:3000/cart/${shoeTemp.id}`, shoeTemp)
+            .put(
+              `https://json-server-0.herokuapp.com/api/cart/${shoeTemp.id}`,
+              shoeTemp
+            )
             .then((res) => {});
         } else {
           const obj = { idShoe: id, quantity: 1 };
-          axios.post(`http://localhost:3000/cart`, obj).then((res) => {});
+          axios
+            .post(`https://json-server-0.herokuapp.com/api/cart/`, obj)
+            .then((res) => {});
         }
       }
     });

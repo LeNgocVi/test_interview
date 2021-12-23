@@ -17,7 +17,10 @@ const CartItem = ({ item, removeItem }) => {
       removeItem(item.id);
     } else {
       axios
-        .put(`http://localhost:3000/cart/${itemIncrease.id}`, itemIncrease)
+        .put(
+          `https://json-server-0.herokuapp.com/api/cart/${itemIncrease.id}`,
+          itemIncrease
+        )
         .then((res) => {});
     }
   };

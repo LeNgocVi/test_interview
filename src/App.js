@@ -7,7 +7,7 @@ function App() {
   const [shoes, setShoes] = useState([]);
 
   const fetchData = () => {
-    axios.get("http://localhost:3000/shoes").then((res) => {
+    axios.get("https://json-server-0.herokuapp.com/api/shoes").then((res) => {
       if (res.status === 200) {
         setShoes(res.data);
       }
